@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="black">#FF000000</color>
-    <color name="dark_gray">#383838</color>
+    <color name="dark_gray">#303030</color>
     <color name="very_dark_shade">#141922</color>
     <color name="gray">#C8C9CB</color>
     <color name="white">#FFFFFFFF</color>
@@ -10,6 +10,7 @@
     <color name="cornflower_blue">#5D9CEC</color>
     <color name="indian_red">#EC4B4B</color>
     <color name="dodger_blue">#3598DB</color>
+
     <color name="item_color">@color/dark_gray</color>
     <color name="text_color">@color/white</color>
     <color name="bottom_nav_color">@color/white</color>
