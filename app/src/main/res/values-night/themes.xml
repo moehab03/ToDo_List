@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.ToDoList" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.ToDoListDark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/cornflower_blue</item>
         <item name="colorPrimaryVariant">@color/dodger_blue</item>
@@ -12,5 +12,11 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="spinner_text">
+        <item name="android:textColor">@color/cornflower_blue</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:padding">14dp</item>
     </style>
 </resources>

@@ -44,21 +44,32 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
         )
         arrayAdapter.setDropDownViewResource(R.layout.spinner_layout)
         binding.languageSpinner.adapter = arrayAdapter
-        binding.languageSpinner.onItemSelectedListener = this //this to display selected item
+        binding.languageSpinner.onItemSelectedListener = this
     }
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         if (parent != null) {
-            Toast.makeText(
-                requireContext(),
-                parent.getItemAtPosition(position).toString(),
-                Toast.LENGTH_SHORT
-            ).show()
+            when (parent.getItemAtPosition(position).toString()) {
+                "Light" -> {
+
+                }
+
+                "Dark" -> {
+
+                }
+
+                "English" -> {
+
+                }
+
+                "عربي" -> {
+
+                }
+            }
         }
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
         TODO("Not yet implemented")
     }
-
 }

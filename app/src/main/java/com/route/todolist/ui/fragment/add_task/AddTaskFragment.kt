@@ -1,12 +1,11 @@
 package com.route.todolist.ui.fragment.add_task
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.doOnTextChanged
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.route.todolist.R
 import com.route.todolist.databinding.FragmentAddTaskBinding
 import java.util.Calendar
 
@@ -24,7 +23,17 @@ class AddTaskFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         enterData()
+        checkEditTextErrors()
         pickDateListener()
+    }
+
+    private fun checkEditTextErrors() {
+        binding.titleET.editText!!.doOnTextChanged { _, _, _, _ ->
+            binding.titleET.error = null
+        }
+        binding.descriptionET.editText!!.doOnTextChanged { _, _, _, _ ->
+            binding.descriptionET.error = null
+        }
     }
 
     private fun pickDateListener() {
@@ -54,12 +63,12 @@ class AddTaskFragment : BottomSheetDialogFragment() {
 
     private fun isValid(): Boolean {
         var isValid = true
-        if (binding.titleEditText.editText!!.text.isEmpty()) {
-            binding.titleEditText.error = "Please enter title"
+        if (binding.titleET.editText!!.text.isEmpty()) {
+            binding.titleET.error = "Please enter title"
             isValid = false
         }
-        if (binding.descriptionEditText.editText!!.text.isEmpty()) {
-            binding.descriptionEditText.error = "Please enter description"
+        if (binding.descriptionET.editText!!.text.isEmpty()) {
+            binding.descriptionET.error = "Please enter description"
             isValid = false
         }
         return isValid
