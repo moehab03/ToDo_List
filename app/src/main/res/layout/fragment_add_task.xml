@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/sec_bg_color"
     tools:context=".ui.fragment.add_task.AddTaskFragment">
 
     <TextView
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/add_new_task"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/add_text_color"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -29,6 +30,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:textColorHint="@color/gray"
+            android:textSize="20sp"
             android:hint="@string/enter_your_task" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -43,6 +47,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:textColorHint="@color/gray"
+            android:textSize="20sp"
             android:hint="@string/enter_description" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -53,7 +60,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/select_time"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/add_text_color"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="@id/descriptionET"
         app:layout_constraintTop_toBottomOf="@id/descriptionET" />
@@ -63,7 +70,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/add_text_color"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,9 +87,10 @@
         android:gravity="center"
         android:text="@string/add"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/add_icon_color"
         app:iconSize="36dp"
-        app:iconTint="@color/white"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/selectedTime" />

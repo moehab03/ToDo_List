@@ -33,7 +33,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:backgroundTint="@color/bottom_nav_bg_color"
+        android:backgroundTint="@color/sec_bg_color"
         app:fabAlignmentMode="center"
         app:fabCradleMargin="8dp"
         app:fabCradleVerticalOffset="8dp">

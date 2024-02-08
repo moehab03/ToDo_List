@@ -2,7 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="dark_gray">#303030</color>
+    <color name="light_gray">#707070</color>
     <color name="very_dark_shade">#141922</color>
+    <color name="dark_navy_blue">#060E1E</color>
     <color name="gray">#C8C9CB</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pale_green">#DFECDB</color>
@@ -12,7 +14,10 @@
     <color name="dodger_blue">#3598DB</color>
 
     <color name="item_color">@color/dark_gray</color>
+    <color name="add_icon_color">@color/white</color>
     <color name="text_color">@color/white</color>
+    <color name="sec_bg_color">@color/white</color>
+    <color name="add_text_color">@color/dark_gray</color>
     <color name="bottom_nav_color">@color/white</color>
     <color name="bg_color">@color/pale_green</color>
     <color name="bottom_nav_bg_color">@color/white</color>

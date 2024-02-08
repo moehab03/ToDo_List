@@ -24,25 +24,33 @@ class HomeActivity : AppCompatActivity() {
         binding.bottomNavigation.setOnItemSelectedListener {
 
             when (it.itemId) {
-                R.id.menu_list_icon -> showFragment(ListFragment())
-                R.id.menu_settings_icon -> showFragment(SettingsFragment())
-            }
+                R.id.menu_list_icon -> {
+                    showFragment(ListFragment())
+                    changeAppBarText("To Do List")
+                }
 
+                R.id.menu_settings_icon -> {
+                    showFragment(SettingsFragment())
+                    changeAppBarText("Settings")
+                }
+            }
             true
         }
     }
 
+    private fun changeAppBarText(title: String) {
+        binding.title.text = title
+    }
+
     private fun onAddClick() {
         binding.fab.setOnClickListener {
-            AddTaskFragment().show(supportFragmentManager, "")
+            AddTaskFragment().show(supportFragmentManager, "add_fragment")
         }
     }
 
     private fun showFragment(fragment: Fragment) {
-
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()
-
     }
 }

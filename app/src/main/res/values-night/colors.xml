@@ -3,6 +3,8 @@
     <color name="black">#FFFFFFFF</color>
     <color name="white">#FF000000</color>
     <color name="very_dark_shade">#141922</color>
+    <color name="light_gray">#707070</color>
+    <color name="dark_navy_blue">#060E1E</color>
     <color name="pale_green">#DFECDB</color>
     <color name="dark_gray">#383838</color>
     <color name="gray">#C8C9CB</color>
@@ -11,7 +13,10 @@
     <color name="indian_red">#EC4B4B</color>
 
     <color name="item_color">@color/gray</color>
-    <color name="bg_color">#060E1E</color>
+    <color name="add_icon_color">@color/black</color>
+    <color name="bg_color">@color/dark_navy_blue</color>
+    <color name="sec_bg_color">@color/very_dark_shade</color>
     <color name="text_color">@color/bg_color</color>
+    <color name="add_text_color">@color/gray</color>
     <color name="bottom_nav_color">@color/very_dark_shade</color>
 </resources>
