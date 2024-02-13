@@ -1,5 +1,6 @@
 package com.route.todolist.ui.fragment.settings
 
+import android.content.res.Resources
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.route.todolist.R
 import com.route.todolist.databinding.FragmentSettingsBinding
+import java.util.Locale
 
 class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
     private lateinit var binding: FragmentSettingsBinding
@@ -19,7 +21,6 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
-        // Inflate the layout for this fragment
         return binding.root
     }
 
@@ -49,27 +50,12 @@ class SettingsFragment : Fragment(), AdapterView.OnItemSelectedListener {
 
     override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
         if (parent != null) {
-            when (parent.getItemAtPosition(position).toString()) {
-                "Light" -> {
-
-                }
-
-                "Dark" -> {
-
-                }
-
-                "English" -> {
-
-                }
-
-                "عربي" -> {
-
-                }
-            }
+            // add required code
         }
     }
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
-        TODO("Not yet implemented")
+        // Do Nothing
     }
+
 }

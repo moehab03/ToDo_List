@@ -10,17 +10,17 @@ import com.route.todolist.database.data_model.Tasks
 @Dao
 interface TasksDao {
     @Insert
-    fun insert(tasks: Tasks)
+    fun insert(task: Tasks)
 
     @Update
-    fun update(tasks: Tasks)
+    fun update(task: Tasks)
 
     @Delete
-    fun delete(tasks: Tasks)
+    fun delete(task: Tasks)
 
     @Query("select * from tasks")
-    fun getAll(): List<Tasks>
+    fun getAllTasks(): List<Tasks>
 
     @Query("select * from tasks where date = :date")
-    fun getAll(date: Long): List<Tasks>
+    fun getTasksByDate(date: Long): List<Tasks>
 }

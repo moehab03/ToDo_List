@@ -5,13 +5,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+import com.route.todolist.clearTime
+import com.route.todolist.database.data_model.Tasks
+import com.route.todolist.database.database.TasksDatabase
 import com.route.todolist.databinding.FragmentAddTaskBinding
 import java.util.Calendar
 
-class AddTaskFragment : BottomSheetDialogFragment() {
+class AddTaskFragment(private var onAddClick: () -> Unit) : BottomSheetDialogFragment() {
     private lateinit var binding: FragmentAddTaskBinding
     private var date = Calendar.getInstance()
 
@@ -31,7 +33,7 @@ class AddTaskFragment : BottomSheetDialogFragment() {
         binding.selectedTime.text = printDate()
         saveTaskInDatabase()
         checkEditTextErrors()
-        pickDateListener()
+        pickDateClicks()
     }
 
     private fun updateDate() {
@@ -45,19 +47,22 @@ class AddTaskFragment : BottomSheetDialogFragment() {
     }
 
     private fun chooseDate() {
-        DatePickerDialog(
+        val datePicker = DatePickerDialog(
             requireContext(),
             { _, selectedYear, selectedMonth, dayOfMonth ->
                 date.set(Calendar.YEAR, selectedYear)
                 date.set(Calendar.MONTH, selectedMonth)
                 date.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+
                 updateDate()
                 binding.selectedTime.text = printDate()
             }, year, month - 1, day
-        ).show()
+        )
+        datePicker.datePicker.minDate = Calendar.getInstance().timeInMillis
+        datePicker.show()
     }
 
-    private fun pickDateListener() {
+    private fun pickDateClicks() {
         binding.selectedTime.setOnClickListener {
             chooseDate()
         }
@@ -69,17 +74,11 @@ class AddTaskFragment : BottomSheetDialogFragment() {
     private fun saveTaskInDatabase() {
         binding.addBtn.setOnClickListener {
             if (isValid()) {
-                //TODO: save data in db
-                Toast.makeText(requireContext(), "No database yet", Toast.LENGTH_SHORT).show()
-                finish()
+                TasksDatabase.getInstance(requireContext()).tasksDao().insert(getTask())
+                onAddClick.invoke()
+                dismiss()
             }
         }
-    }
-
-    private fun finish() {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .remove(this)
-            .commit()
     }
 
     private fun isValid(): Boolean {
@@ -104,4 +103,11 @@ class AddTaskFragment : BottomSheetDialogFragment() {
         }
     }
 
+    private fun getTask(): Tasks {
+        val title = binding.titleET.editText!!.text.toString()
+        val description = binding.descriptionET.editText!!.text.toString()
+        date.clearTime()
+        val taskDate = date.timeInMillis
+        return Tasks(title = title, description = description, date = taskDate, isDone = false)
+    }
 }
