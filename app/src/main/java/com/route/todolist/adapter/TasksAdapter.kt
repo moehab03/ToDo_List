@@ -32,6 +32,7 @@ class TasksAdapter(
             with(binding)
             {
                 titleTv.text = task.title
+                descriptionTv.text = task.description
                 doneBtn.setOnClickListener {
                     if (!task.isDone!!)
                         taskDone(holder, task)
