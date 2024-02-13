@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
-    android:background="@color/sec_bg_color"
     android:padding="8dp"
+    app:cardBackgroundColor="@color/sec_bg_color"
     app:cardCornerRadius="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -32,27 +32,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
-            android:layout_marginTop="7dp"
             android:fontFamily="@font/poppins_bold"
             android:textColor="@color/cornflower_blue"
             android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/line"
             app:layout_constraintStart_toEndOf="@id/line"
             app:layout_constraintTop_toTopOf="@id/line"
             tools:text="Play basket ball" />
-
-        <TextView
-            android:id="@+id/timeTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="25dp"
-            android:layout_marginTop="3dp"
-            android:layout_marginBottom="27dp"
-            android:textColor="@color/dark_gray"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toBottomOf="@id/constraint"
-            app:layout_constraintStart_toEndOf="@id/line"
-            app:layout_constraintTop_toBottomOf="@id/titleTv"
-            tools:text="10:30 AM" />
 
 
         <ImageView

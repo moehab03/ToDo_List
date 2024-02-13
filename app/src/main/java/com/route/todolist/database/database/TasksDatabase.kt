@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.route.todolist.database.dao.TasksDao
 import com.route.todolist.database.data_model.Tasks
 
-@Database([Tasks::class], version = 1)
+@Database(entities = [Tasks::class], version = 1)
 abstract class TasksDatabase : RoomDatabase() {
     abstract fun tasksDao(): TasksDao
 
@@ -21,7 +21,7 @@ abstract class TasksDatabase : RoomDatabase() {
                     context.applicationContext,
                     TasksDatabase::class.java,
                     DATABASE_NAME
-                )
+                ).allowMainThreadQueries()
                     .build()
             }
 

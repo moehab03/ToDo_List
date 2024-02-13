@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">قائمة المهام</string>
+    <string name="to_do_list">قائمة المهام</string>
+    <string name="list">القائمة</string>
+    <string name="settings">الإعدادات</string>
+    <string name="developed_by_mohamed_ehab">تم التطوير بواسطه محمد إيهاب</string>
+    <string name="add_new_task">إضافة مهمة جديدة</string>
+    <string name="enter_your_task">أدخل عنوان المهمة</string>
+    <string name="enter_description">أدخل تفاصيل المهمة</string>
+    <string name="select_time">أختار التاريخ</string>
+    <string name="add">إضافة</string>
+    <string name="language">اللغة</string>
+    <string name="mode">الوضع</string>
+    <string name="this_is_title">هذا هو العنوان</string>
+    <string name="task_details">تفاصيل المهمة</string>
+    <string name="save_changes">احفظ التغييرات</string>
+    <string name="edit_task">تعديل المهمة</string>
+</resources>

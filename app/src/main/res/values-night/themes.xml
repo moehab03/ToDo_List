@@ -3,7 +3,7 @@
     <style name="Theme.ToDoListDark" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/cornflower_blue</item>
-        <item name="colorPrimaryVariant">@color/dodger_blue</item>
+        <item name="colorPrimaryVariant">@color/cornflower_blue</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/pale_green</item>

@@ -19,4 +19,5 @@
     <color name="text_color">@color/bg_color</color>
     <color name="add_text_color">@color/gray</color>
     <color name="bottom_nav_color">@color/very_dark_shade</color>
+    <color name="date_text_color">@color/black</color>
 </resources>

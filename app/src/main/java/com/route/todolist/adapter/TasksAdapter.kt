@@ -10,7 +10,12 @@ import com.route.todolist.R
 import com.route.todolist.database.data_model.Tasks
 import com.route.todolist.databinding.TaskDesignBinding
 
-class TasksAdapter(private val tasks: List<Tasks>) : Adapter<TasksAdapter.ViewHolder>() {
+class TasksAdapter(
+    private var tasks: List<Tasks>,
+    private val updateTask: (task: Tasks) -> Unit,
+    private val onTaskClick: (task: Tasks) -> Unit
+) :
+    Adapter<TasksAdapter.ViewHolder>() {
     inner class ViewHolder(val binding: TaskDesignBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -24,19 +29,31 @@ class TasksAdapter(private val tasks: List<Tasks>) : Adapter<TasksAdapter.ViewHo
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         with(holder) {
             val task = tasks[position]
-            binding.titleTv.text = task.title
-            binding.timeTv.text = task.date
-            binding.doneBtn.setOnClickListener {
-                if (!task.isDone!!)
-                    taskDone(holder, task)
-                else
-                    undoTask(holder, task)
+            with(binding)
+            {
+                titleTv.text = task.title
+                doneBtn.setOnClickListener {
+                    if (!task.isDone!!)
+                        taskDone(holder, task)
+                    else
+                        undoTask(holder, task)
+                }
+                itemView.setOnClickListener {
+                    onTaskClick(task)
+                }
             }
         }
     }
 
+    @SuppressLint("NotifyDataSetChanged")
+    fun updateTasks(tasksList: List<Tasks>) {
+        tasks = tasksList
+        notifyDataSetChanged()
+    }
+
     private fun undoTask(holder: ViewHolder, task: Tasks) {
         task.isDone = false
+        updateTask.invoke(task)
         with(holder) {
             binding.line.setImageResource(R.color.cornflower_blue)
             binding.titleTv.setTextColor(Color.parseColor("#5D9CEC"))
@@ -46,10 +63,13 @@ class TasksAdapter(private val tasks: List<Tasks>) : Adapter<TasksAdapter.ViewHo
 
     private fun taskDone(holder: ViewHolder, task: Tasks) {
         task.isDone = true
+        updateTask.invoke(task)
         with(holder) {
-            binding.line.setImageResource(R.color.mint_green)
-            binding.titleTv.setTextColor(Color.parseColor("#61E757"))
-            binding.doneBtn.setImageResource(R.drawable.done_btn_img)
+            with(binding) {
+                line.setImageResource(R.color.mint_green)
+                titleTv.setTextColor(Color.parseColor("#61E757"))
+                doneBtn.setImageResource(R.drawable.done_btn_img)
+            }
         }
     }
 }

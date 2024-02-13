@@ -21,4 +21,5 @@
     <color name="bottom_nav_color">@color/white</color>
     <color name="bg_color">@color/pale_green</color>
     <color name="bottom_nav_bg_color">@color/white</color>
+    <color name="date_text_color">@color/dark_gray</color>
 </resources>

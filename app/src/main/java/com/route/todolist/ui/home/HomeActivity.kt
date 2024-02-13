@@ -10,12 +10,20 @@ import com.route.todolist.ui.fragment.list.ListFragment
 import com.route.todolist.ui.fragment.settings.SettingsFragment
 
 class HomeActivity : AppCompatActivity() {
+
     private lateinit var binding: ActivityHomeBinding
+
+    private val listFragment = ListFragment()
+    private val settingsFragment = SettingsFragment()
+    private val addTaskFragment = AddTaskFragment {
+        listFragment.refreshTasksList()
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        showFragment(ListFragment())
+        showFragment(listFragment)
         onMenuClick()
         onAddClick()
     }
@@ -25,12 +33,12 @@ class HomeActivity : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.menu_list_icon -> {
-                    showFragment(ListFragment())
+                    showFragment(listFragment)
                     changeAppBarText("To Do List")
                 }
 
                 R.id.menu_settings_icon -> {
-                    showFragment(SettingsFragment())
+                    showFragment(settingsFragment)
                     changeAppBarText("Settings")
                 }
             }
@@ -44,7 +52,7 @@ class HomeActivity : AppCompatActivity() {
 
     private fun onAddClick() {
         binding.fab.setOnClickListener {
-            AddTaskFragment().show(supportFragmentManager, "add_fragment")
+            addTaskFragment.show(supportFragmentManager, "add_fragment")
         }
     }
 
