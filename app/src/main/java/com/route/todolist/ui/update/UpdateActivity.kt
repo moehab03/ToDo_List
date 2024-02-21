@@ -5,6 +5,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import androidx.core.widget.addTextChangedListener
 import com.route.todolist.Constant
 import com.route.todolist.R
 import com.route.todolist.clearTime
@@ -30,24 +31,51 @@ class UpdateActivity : AppCompatActivity() {
         setContentView(binding.root)
         getTask()
         setDataInFields()
+        checkEditTextErrors()
         pickDateClicks()
         updateTaskClick()
     }
 
     private fun updateTaskClick() {
         binding.updateBtn.setOnClickListener {
-            updateTask()
-            finish()
+            if (updateTask())
+                finish()
         }
     }
 
-    private fun updateTask() {
-        with(binding) {
-            task.title = titleUpdateET.editText!!.text.toString()
-            task.description = descriptionUpdateET.editText!!.text.toString()
-            date.clearTime()
-            task.date = date.timeInMillis
-            TasksDatabase.getInstance(this@UpdateActivity).tasksDao().update(task)
+    private fun updateTask(): Boolean {
+        if (isValid()) {
+            with(binding) {
+                task.title = titleUpdateET.editText!!.text.toString()
+                task.description = descriptionUpdateET.editText!!.text.toString()
+                date.clearTime()
+                task.date = date.timeInMillis
+                TasksDatabase.getInstance(this@UpdateActivity).tasksDao().update(task)
+                return true
+            }
+        } else
+            return false
+    }
+
+    private fun isValid(): Boolean {
+        var isValid = true
+        if (binding.titleUpdateET.editText!!.text.isEmpty()) {
+            binding.titleUpdateET.error = "Please enter title"
+            isValid = false
+        }
+        if (binding.descriptionUpdateET.editText!!.text.isEmpty()) {
+            binding.descriptionUpdateET.error = "Please enter description"
+            isValid = false
+        }
+        return isValid
+    }
+
+    private fun checkEditTextErrors() {
+        binding.titleUpdateET.editText!!.addTextChangedListener {
+            binding.titleUpdateET.error = null
+        }
+        binding.descriptionUpdateET.editText!!.addTextChangedListener {
+            binding.descriptionUpdateET.error = null
         }
     }
 

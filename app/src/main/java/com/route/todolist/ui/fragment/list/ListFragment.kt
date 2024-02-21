@@ -1,11 +1,13 @@
 package com.route.todolist.ui.fragment.list
 
+
 import android.content.Intent
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.prolificinteractive.materialcalendarview.CalendarDay
 import com.route.todolist.Constant
 import com.route.todolist.adapter.TasksAdapter
@@ -13,11 +15,9 @@ import com.route.todolist.database.database.TasksDatabase
 import com.route.todolist.databinding.FragmentListBinding
 import com.route.todolist.timeInMillis
 import com.route.todolist.ui.update.UpdateActivity
-import java.util.Calendar
 
 class ListFragment : Fragment() {
     private lateinit var binding: FragmentListBinding
-    private var date = Calendar.getInstance()
     private var selectedDate = CalendarDay.today()
     private var adapter = TasksAdapter(
         listOf(),
@@ -28,6 +28,9 @@ class ListFragment : Fragment() {
                 intent.putExtra(Constant.TASK, it)
                 startActivity(intent)
             }
+        }, {
+            TasksDatabase.getInstance(requireContext()).tasksDao().delete(it)
+            refreshTasksList()
         }
     )
 
@@ -42,7 +45,7 @@ class ListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.recyclerView.adapter = adapter
+        initRecyclerView()
         initCalender()
         refreshTasksList()
     }
@@ -50,6 +53,10 @@ class ListFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         refreshTasksList()
+    }
+
+    private fun initRecyclerView() {
+        binding.recyclerView.adapter = adapter
     }
 
     private fun initCalender() {

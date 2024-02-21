@@ -44,105 +44,111 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBarLayout">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/editTextTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/poppins_bold"
-                android:text="@string/edit_task"
-                android:textColor="@color/add_text_color"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/titleUpdateET"
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="20dp"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:layout_constraintTop_toBottomOf="@id/editTextTitle">
+                android:layout_height="match_parent">
 
-                <EditText
+                <TextView
+                    android:id="@+id/editTextTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/edit_task"
+                    android:textColor="@color/add_text_color"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/titleUpdateET"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:hint="@string/this_is_title"
-                    android:inputType="text"
-                    android:textColorHint="@color/gray"
-                    android:textSize="20sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="20dp"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:layout_constraintTop_toBottomOf="@id/editTextTitle">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/descriptionUpdateET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="8dp"
-                android:layout_marginTop="8dp"
-                app:boxBackgroundColor="@android:color/transparent"
-                app:layout_constraintTop_toBottomOf="@id/titleUpdateET">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/this_is_title"
+                        android:inputType="textPersonName"
+                        android:textColorHint="@color/gray"
+                        android:textSize="20sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/descriptionUpdateET"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@android:color/transparent"
-                    android:hint="@string/task_details"
-                    android:inputType="textMultiLine"
-                    android:textColorHint="@color/gray"
-                    android:textSize="20sp" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    app:boxBackgroundColor="@android:color/transparent"
+                    app:layout_constraintTop_toBottomOf="@id/titleUpdateET">
 
-            <TextView
-                android:id="@+id/selectTimeUpdateTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="29dp"
-                android:text="@string/select_time"
-                android:textColor="@color/add_text_color"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="@id/descriptionUpdateET"
-                app:layout_constraintTop_toBottomOf="@id/descriptionUpdateET" />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/task_details"
+                        android:inputType="textMultiLine"
+                        android:textColorHint="@color/gray"
+                        android:textSize="20sp" />
+                </com.google.android.material.textfield.TextInputLayout>
 
-            <TextView
-                android:id="@+id/selectedTimeUpdate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:textColor="@color/light_gray"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/selectTimeUpdateTV"
-                tools:text="2/2/2024" />
+                <TextView
+                    android:id="@+id/selectTimeUpdateTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="29dp"
+                    android:text="@string/select_time"
+                    android:textColor="@color/add_text_color"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="@id/descriptionUpdateET"
+                    app:layout_constraintTop_toBottomOf="@id/descriptionUpdateET" />
 
-            <Button
-                android:id="@+id/updateBtn"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="115dp"
-                android:backgroundTint="@color/cornflower_blue"
-                android:gravity="center"
-                android:padding="15dp"
-                android:text="@string/save_changes"
-                android:textAllCaps="false"
-                android:textColor="@color/add_icon_color"
-                android:textSize="18sp"
-                app:cornerRadius="30dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/selectedTimeUpdate"
-                app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/selectedTimeUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/light_gray"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/selectTimeUpdateTV"
+                    tools:text="2/2/2024" />
+
+                <Button
+                    android:id="@+id/updateBtn"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="80dp"
+                    android:backgroundTint="@color/cornflower_blue"
+                    android:gravity="center"
+                    android:padding="15dp"
+                    android:text="@string/save_changes"
+                    android:textAllCaps="false"
+                    android:textColor="@color/add_icon_color"
+                    android:textSize="18sp"
+                    app:cornerRadius="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/selectedTimeUpdate"
+                    app:layout_constraintVertical_bias="0.0" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </ScrollView>
 
     </com.google.android.material.card.MaterialCardView>
 
