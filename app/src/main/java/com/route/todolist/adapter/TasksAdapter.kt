@@ -43,7 +43,7 @@ class TasksAdapter(
                     else
                         undoTask(holder, task)
                 }
-                itemView.setOnClickListener {
+                cardView.setOnClickListener {
                     onTaskClick(task)
                 }
                 deleteBtn.setOnClickListener {
