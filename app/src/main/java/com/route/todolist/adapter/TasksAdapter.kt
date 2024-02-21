@@ -5,6 +5,7 @@ import android.graphics.Color
 import android.view.DragEvent
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.route.todolist.R
@@ -14,9 +15,11 @@ import com.route.todolist.databinding.TaskDesignBinding
 class TasksAdapter(
     private var tasks: List<Tasks>,
     private val updateTask: (task: Tasks) -> Unit,
-    private val onTaskClick: (task: Tasks) -> Unit
+    private val onTaskClick: (task: Tasks) -> Unit,
+    private val deleteTask: (task: Tasks) -> Unit
 ) :
     Adapter<TasksAdapter.ViewHolder>() {
+
     inner class ViewHolder(val binding: TaskDesignBinding) :
         RecyclerView.ViewHolder(binding.root)
 
@@ -42,6 +45,9 @@ class TasksAdapter(
                 }
                 itemView.setOnClickListener {
                     onTaskClick(task)
+                }
+                deleteBtn.setOnClickListener {
+                    deleteTask.invoke(task)
                 }
             }
         }
